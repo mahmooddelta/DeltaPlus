@@ -33,31 +33,17 @@
                 </a>
                 <ul class="dropdown-menu dropdown-menu-end">
                     <li>
-                        <a class="dropdown-item active"
-                           href="https://demos.pixinvent.com/materialize-html-laravel-admin-template/demo-3/lang/en"
+                        <a class="dropdown-item {{ session('locale') === 'en' ? 'active' : '' }}"
+                           href="{{ route('admin.localization','en') }}"
                            data-language="en">
                             <span class="align-middle">English</span>
                         </a>
                     </li>
                     <li>
-                        <a class="dropdown-item "
-                           href="https://demos.pixinvent.com/materialize-html-laravel-admin-template/demo-3/lang/fr"
-                           data-language="fr">
-                            <span class="align-middle">French</span>
-                        </a>
-                    </li>
-                    <li>
-                        <a class="dropdown-item "
-                           href="https://demos.pixinvent.com/materialize-html-laravel-admin-template/demo-3/lang/de"
-                           data-language="de">
-                            <span class="align-middle">German</span>
-                        </a>
-                    </li>
-                    <li>
-                        <a class="dropdown-item "
-                           href="https://demos.pixinvent.com/materialize-html-laravel-admin-template/demo-3/lang/pt"
-                           data-language="pt">
-                            <span class="align-middle">Portuguese</span>
+                        <a class="dropdown-item {{ session('locale') === 'fa' ? 'active' : '' }}"
+                           href="{{ route('admin.localization','fa') }}"
+                           data-language="fa">
+                            <span class="align-middle">فارسی</span>
                         </a>
                     </li>
                 </ul>

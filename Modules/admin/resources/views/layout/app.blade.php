@@ -19,17 +19,11 @@
     <meta name="csrf-token" content="uwlOLQd9V82lIiV1RA6kpvGYCAbVS67AlBfl5irw">
 
 
-
-
     <link rel="canonical" href="https://1.envato.market/materialize_admin">
     <!-- Favicon -->
     <link rel="icon" type="image/x-icon" href="https://demos.pixinvent.com/materialize-html-laravel-admin-template/demo/assets/img/favicon/favicon.ico" />
     <link rel="stylesheet" href="{{ asset('admin/assets/vendor/fonts/iransans.css') }}"/>
 
-    <!-- Include Styles -->
-    <!-- $isFront is used to append the front layout styles only on the front layout otherwise the variable will be blank -->
-    <!-- BEGIN: Theme CSS-->
-    <!-- Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&ampdisplay=swap" rel="stylesheet">
@@ -96,6 +90,9 @@
     <link rel="stylesheet"
           href="{{ asset('admin/assets/vendor/css/rtl/theme-semi-dark.css?id=3d719b360981903a81b1808c59cbaf26') }}"
           class="template-customizer-theme-css"/>
+
+    @yield('css')
+
 {{--    <link rel="stylesheet"--}}
 {{--          href="{{ asset('admin/assets/css/demo.css?id=b0748c2ad4338911d21615a7692027bd') }}"/>--}}
 
@@ -473,6 +470,7 @@
 <link rel="modulepreload" href="{{ asset('admin/assets/demo/build/assets/swiper-CY5T_L6i.js')}}" />
 <link rel="modulepreload" href="{{ asset('admin/assets/demo/build/assets/main-DRGn0ueN.js')}}" />
 <link rel="modulepreload" href="{{ asset('admin/assets/demo/build/assets/app-ecommerce-dashboard-CzLdHfb8.js')}}" />
+<link rel="modulepreload" href="{{ asset('admin/assets/demo/build/assets/dropzone-796O8KZ3.js')}}" />
 
 <script type="module" src="{{ asset('admin/assets/demo/build/assets/jquery-CbdDuLi-.js')}}"></script>
 <script type="module" src="{{ asset('admin/assets/demo/build/assets/popper-DNZnuk_L.js')}}"></script>
@@ -487,7 +485,8 @@
 <script type="module" src="{{ asset('admin/assets/demo/build/assets/swiper-CY5T_L6i.js')}}"></script>
 <script type="module" src="{{ asset('admin/assets/demo/build/assets/main-DRGn0ueN.js')}}"></script>
 <script type="module" src="{{ asset('admin/assets/demo/build/assets/app-ecommerce-dashboard-CzLdHfb8.js')}}"></script>
-
+<script type="module" src="{{ asset('admin/assets/demo/build/assets/dropzone-796O8KZ3.js')}}"></script>
+@yield('script')
 </body>
 
 </html>

@@ -4,6 +4,8 @@ namespace App\Services;
 
 
 use App\Repositories\Interfaces\UserRepositoryInterface;
+use Faker\Core\File;
+use Illuminate\Support\Facades\Storage;
 
 final readonly class UserService
 {
@@ -29,6 +31,11 @@ final readonly class UserService
     public function update($data, $id)
     {
         return $this->repository->update($data, $id);
+    }
+
+    public function removeAvatar($file)
+    {
+        Storage::delete($file);
     }
 
     public function delete(int $id)

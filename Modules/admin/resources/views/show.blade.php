@@ -14,7 +14,7 @@
                         <div class="card-body pt-12">
                             <div class="user-avatar-section">
                                 <div class=" d-flex align-items-center flex-column">
-                                    <img class="img-fluid rounded-3 mb-4" src="https://demos.pixinvent.com/materialize-html-laravel-admin-template/demo/assets/img/avatars/1.png" height="120" width="120" alt="User avatar" />
+                                    <img class="img-fluid rounded-3 mb-4" src="{{ asset('storage/' . $user->avatar) }}" height="120" width="120" alt="User avatar" />
                                     <div class="user-info text-center">
                                         <h5>{{ $user->name }}</h5>
                                         <span class="badge bg-label-danger rounded-pill">Subscriber</span>

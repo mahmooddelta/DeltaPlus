@@ -12,6 +12,8 @@ class AdminServiceProvider extends ServiceProvider
     public function register()
     {
         $this->loadViewsFrom(__DIR__.'/resources/views' , 'admin');
+        $this->loadTranslationsFrom(__DIR__.'/resources/lang' , 'admin');
+        $this->loadMigrationsFrom(__DIR__.'/database/migrations');
     }
 
     public function boot()

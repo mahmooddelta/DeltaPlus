@@ -1,32 +1,9 @@
 <?php
 
+use Admin\Http\Controllers\UserController;
 use Illuminate\Support\Facades\Route;
 use Admin\Http\Controllers\Auth\LoginController;
 use Admin\Http\Controllers\Auth\RegisteredUserController;
-
-/*
-|--------------------------------------------------------------------------
-| Web Routes
-|--------------------------------------------------------------------------
-|
-| Here is where you can register web routes for your application. These
-| routes are loaded by the RouteServiceProvider and all of them will
-| be assigned to the "web" middleware group. Make something great!
-|
-*/
-
-// Route::get('admin/dashboard', function () {
-//     return view('admin::dashboard');
-// });
-
-// Route::get('/admin/list', function () {
-//     return view('admin::list');
-// })->name('admin.users.list.test');
-
-// Route::resource('users', \Admin\Http\Controllers\UserController::class);
-
-
-
 
 
 Route::prefix('admin')->middleware('guest:admin')->group(function () {
@@ -38,20 +15,20 @@ Route::prefix('admin')->middleware('guest:admin')->group(function () {
 
 });
 
-Route::prefix('admin')->middleware('auth:admin')->group(function () {
-
+Route::prefix('admin')->name('admin.')->middleware('auth:admin')->group(function () {
 
     Route::get('/dashboard', function () {
         return view('admin::dashboard');
-    })->name('admin.dashboard');
+    })->name('dashboard');
 
-//    Route::get('/users', function () {
-//        return view('admin::list');
-//    })->name('admin.list');
+    Route::get('/change-lang/{locale}', function ($local) {
+        Session()->put('locale', $local);
+        return redirect()->back();
+    })->name('localization');
 
-    Route::get('/users', [\Admin\Http\Controllers\UserController::class, 'index'])->name('admin.users');
-    Route::delete('/users/{id}', [\Admin\Http\Controllers\UserController::class, 'delete'])->name('admin.users.delete');
-    Route::get('/users/{id}', [\Admin\Http\Controllers\UserController::class, 'show'])->name('admin.users.show');
-    Route::patch('/users/{id}', [\Admin\Http\Controllers\UserController::class, 'update'])->name('admin.users.update');
-    Route::post('logout', [LoginController::class, 'destroy'])->name('admin.logout');
+    Route::get('users', [UserController::class, 'index'])->name('users');
+    Route::delete('/users/{id}', [UserController::class, 'delete'])->name('users.delete');
+    Route::get('/users/{id}', [UserController::class, 'show'])->name('users.show');
+    Route::patch('/users/{id}', [UserController::class, 'update'])->name('users.update');
+    Route::post('logout', [LoginController::class, 'destroy'])->name('logout');
 });

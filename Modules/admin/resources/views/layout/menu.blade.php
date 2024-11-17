@@ -63,7 +63,7 @@
             <a href="/admin/dashboard"
                class="menu-link">
                 <i class="menu-icon tf-icons mdi mdi-home-outline"></i>
-                <div>داشبورد</div>
+                <div>{{ __('admin.dashboard') }}</div>
             </a>
         </li>
 
@@ -71,15 +71,15 @@
         <li class="menu-item">
             <a href="javascript:void(0);" class="menu-link menu-toggle">
                 <i class="menu-icon tf-icons mdi mdi-account-outline"></i>
-                <div>کاربران</div>
+                <div>{{ __('admin.users') }}</div>
             </a>
 
 
             <ul class="menu-sub">
                 <li class="menu-item ">
-                    <a href="users"
+                    <a href="{{ route('admin.users') }}"
                        class="menu-link">
-                        <div>لیست</div>
+                        <div>{{ __('admin.list') }}</div>
                     </a>
                 </li>
 

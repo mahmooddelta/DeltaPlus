@@ -1,5 +1,14 @@
 @extends('admin::layout.app')
+@section('css')
+    <link rel="stylesheet" href="{{ asset('admin/assets/demo/build/assets/dropzone-YD3KFMp8.css') }}" />
+@endsection
+@section('script')
+{{--    <link type="modulepreload" href="{{ asset('admin/assets/demo/build/assets/dropzone-796O8KZ3.js')}}" />--}}
+{{--    <script type="module" src="{{ asset('admin/assets/demo/build/assets/dropzone-796O8KZ3.js')}}"></script>--}}
 
+{{--<script src="https://unpkg.com/dropzone@5/dist/min/dropzone.min.js"></script>--}}
+{{--<link rel="stylesheet" href="https://unpkg.com/dropzone@5/dist/min/dropzone.min.css" type="text/css" />--}}
+@endsection
 @section('content')
     <div class="content-wrapper">
 
@@ -206,7 +215,7 @@
                                         <div class="d-flex justify-content-start align-items-center user-name">
                                             <div class="avatar-wrapper">
                                                 <div class="avatar avatar-sm me-3"><img
-                                                        src="https://demos.pixinvent.com/materialize-html-laravel-admin-template/demo/assets/img/avatars/2.png"
+                                                        src="{{ asset('storage/' . $user->avatar) }}"
                                                         alt="Avatar" class="rounded-circle"></div>
                                             </div>
                                             <div class="d-flex flex-column"><a
@@ -329,7 +338,8 @@
                     </div>
                     <div class="offcanvas-body mx-0 flex-grow-0 h-100">
                         <form method="POST" class="add-new-user pt-0 fv-plugins-bootstrap5 fv-plugins-framework" id="addNewUserForm"
-                              novalidate="novalidate" action="{{route('register.store')}}">
+                              novalidate="novalidate" action="{{route('register.store')}}"
+                              enctype="multipart/form-data">
                             @csrf
                             <div class="form-floating form-floating-outline mb-5 fv-plugins-icon-container">
                                 <input type="text" class="form-control" id="add-user-fullname" placeholder="John Doe"
@@ -353,6 +363,11 @@
                                 <div
                                     class="fv-plugins-message-container fv-plugins-message-container--enabled invalid-feedback"></div>
                             </div>
+                            <input type="file" name="avatar" >
+
+
+
+
 
 {{--                            <div class="form-floating form-floating-outline mb-5">--}}
 {{--                                <input type="text" id="add-user-contact" class="form-control phone-mask"--}}
@@ -436,6 +451,24 @@
                                     data-bs-dismiss="offcanvas">Cancel
                             </button>
                             <input type="hidden"></form>
+
+
+
+
+                        <div class="card mb-6">
+                            <h5 class="card-header">Basic</h5>
+                            <div class="card-body">
+                                <form action="/upload" class="dropzone needsclick dz-clickable" id="dropzone-basic">
+                                    <div class="dz-message needsclick">
+                                        Drop files here or click to upload
+                                        <span class="note needsclick">(This is just a demo dropzone. Selected files are <span class="fw-medium">not</span> actually uploaded.)</span>
+                                    </div>
+
+                                </form>
+                            </div>
+                        </div>
+
+
                     </div>
                 </div>
             </div>

@@ -12,9 +12,18 @@ use Illuminate\Support\Facades\Route;
 | be assigned to the "web" middleware group. Make something great!
 |
 */
+Route::post('client/logout', [\Client\Http\Controllers\Auth\RegisteredUserController::class, 'destroy'])
+    ->name('client.logout');
+
 Route::get('/', function () {
+//    dd(phpinfo());
     return view('client::frontend');
 });
+
+Route::get('/dashboard', function () {
+    return view('client::dashboard');
+})->middleware(['auth', 'verified'])->name('client.dashboard');
+
 
 Route::middleware('guest')->group(function () {
     Route::get('register', [\Client\Http\Controllers\Auth\RegisteredUserController::class, 'create'])
@@ -22,6 +31,8 @@ Route::middleware('guest')->group(function () {
 
     Route::post('register', [\Client\Http\Controllers\Auth\RegisteredUserController::class, 'store'])
         ->name('register.store');
+
+
 //
 //    Route::get('login', [AuthenticatedSessionController::class, 'create'])
 //        ->name('login');
