@@ -180,7 +180,7 @@
                                 </th>
                                 <th class="sorting sorting_desc" tabindex="0" aria-controls="DataTables_Table_0"
                                     rowspan="1" colspan="1" style="width: 303px;"
-                                    aria-label="User: activate to sort column ascending" aria-sort="descending">User
+                                    aria-label="User: activate to sort column ascending" aria-sort="descending">{{ __('admin.user') }}
                                 </th>
                                 <th class="sorting" tabindex="0" aria-controls="DataTables_Table_0" rowspan="1"
                                     colspan="1" style="width: 304px;"
